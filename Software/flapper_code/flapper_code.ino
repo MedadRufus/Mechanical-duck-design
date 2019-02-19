@@ -24,16 +24,22 @@ void setup() {
 
 }
 
+int start_pos  = 50;
+int end_pos  = 180;
+int pos_step = 2;
+int offset = 50;
+
+
 void loop() {
-  for (pos = 0; pos <= 180; pos += 2) { // goes from 0 degrees to 180 degrees
+  for (pos = start_pos; pos <= end_pos; pos += pos_step) { // goes from 0 degrees to 180 degrees
     // in steps of 1 degree
-    servoleft.write(pos);              // tell servo to go to position in variable 'pos'
+    servoleft.write(180-(pos+offset));              // tell servo to go to position in variable 'pos'
     servoright.write(pos);              // tell servo to go to position in variable 'pos'
     delay(15);                       // waits 15ms for the servo to reach the position
   }
-  for (pos = 180; pos >= 0; pos -= 2) { // goes from 180 degrees to 0 degrees
+  for (pos = end_pos; pos >= start_pos; pos -= pos_step) { // goes from 180 degrees to 0 degrees
     servoleft.write(pos);              // tell servo to go to position in variable 'pos'
-    servoright.write(pos);              // tell servo to go to position in variable 'pos'
+    servoright.write(180-(pos+offset));              // tell servo to go to position in variable 'pos'
     delay(15);                       // waits 15ms for the servo to reach the position
   }
 }

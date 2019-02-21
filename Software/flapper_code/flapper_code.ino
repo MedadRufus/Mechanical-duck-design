@@ -18,29 +18,45 @@ Servo servoright;  // create servo object to control a servo
 
 int pos = 0;    // variable to store the servo position
 
-void setup() {
-  servoleft.attach(9);  // attaches the servo on pin 9 to the servo object
-  servoright.attach(10);  // attaches the servo on pin 9 to the servo object
 
-}
 
 int start_pos  = 50;
 int end_pos  = 180;
 int pos_step = 2;
 int offset = 50;
+int direction_;
 
 
-void loop() {
-  for (pos = start_pos; pos <= end_pos; pos += pos_step) { // goes from 0 degrees to 180 degrees
-    // in steps of 1 degree
-    servoleft.write(180-(pos+offset));              // tell servo to go to position in variable 'pos'
-    servoright.write(pos);              // tell servo to go to position in variable 'pos'
-    delay(15);                       // waits 15ms for the servo to reach the position
-  }
-  for (pos = end_pos; pos >= start_pos; pos -= pos_step) { // goes from 180 degrees to 0 degrees
-    servoleft.write(pos);              // tell servo to go to position in variable 'pos'
-    servoright.write(180-(pos+offset));              // tell servo to go to position in variable 'pos'
-    delay(15);                       // waits 15ms for the servo to reach the position
-  }
+void setup() {
+  servoleft.attach(9);  // attaches the servo on pin 9 to the servo object
+  servoright.attach(10);  // attaches the servo on pin 9 to the servo object
+  Serial.begin(9600); // opens serial port, sets data rate to 9600 bps
+
+
 }
+void loop(){
+  move_motor(servoright,30,180,3);
+  move_motor(servoleft,180,,3);
+
+  delay(500);
+}
+
+void move_motor(Servo &motor,int start_pos,int end_pos,int motor_speed){
+    direction_ = start_pos - end_pos;
+   Serial.println("heresd" );
+   Serial.println(direction_);
+
+   if (direction_ < 0){
+          for (pos = start_pos; pos <= end_pos; pos += motor_speed) { // goes from 0 degrees to 180 degrees
+          motor.write(pos);              // tell servo to go to position in variable 'pos'
+          delay(15);                       // waits 15ms for the servo to reach the position
+        }
+   }else{
+        for (pos = start_pos; pos >= end_pos; pos -= motor_speed) { // goes from 0 degrees to 180 degrees
+        motor.write(pos);              // tell servo to go to position in variable 'pos'
+        delay(15);                       // waits 15ms for the servo to reach the position
+        }   
+   }
+}
+
 

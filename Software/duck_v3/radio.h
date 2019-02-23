@@ -2,13 +2,10 @@
     Created on Medad Newman on 22 Feb 2019
 */
 
-#ifndef RADIO_H
-#define RADIO_H
+#ifndef Radio_h
+#define Radio_h
 
 #include <stdint.h>
-
-
-#define RC_NUM_CHANNELS  4
 
 #define RC_CH1  0
 #define RC_CH2  1
@@ -20,16 +17,19 @@
 #define RC_CH3_INPUT  A2
 #define RC_CH4_INPUT  A3
 
-uint32_t rc_start[RC_NUM_CHANNELS];
-uint16_t rc_values[RC_NUM_CHANNELS];
+#define RC_NUM_CHANNELS  4
 
-void rc_read_values(); //impt
+extern uint32_t rc_start[RC_NUM_CHANNELS];
+extern uint16_t rc_values[RC_NUM_CHANNELS];
+
+void print_receiver_values(); //impt
+void rc_read_values();
 void calc_input(uint8_t channel, uint8_t input_pin);
 void calc_ch1();
 void calc_ch2();
 void calc_ch3();
 void calc_ch4();
-void receiver_setup(); //impt
+void radio_setup(); //impt
 
 
 #endif // RADIO_H

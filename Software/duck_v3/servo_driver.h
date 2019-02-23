@@ -13,7 +13,7 @@
 
 void set_servos(int servo1_pos, int servo2_pos);
 void servo_setup();
-void forward();
+void forward(int duck_speed);
 void turn_left();
 void turn_right();
 

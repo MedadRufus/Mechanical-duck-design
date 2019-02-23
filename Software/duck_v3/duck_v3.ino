@@ -15,6 +15,7 @@ int servo1_pos = 20;  // desired angle for servo1
 int servo2_pos = 20;  // desired angle for servo2
 int i = 30;
 int duck_speed = 0;
+int rotation = 50;
 
 
 void setup() {
@@ -32,16 +33,17 @@ void loop()
         But if the left right passes a threshold, do the rotation.
     */
     rc_read_values();
-    
+
     duck_speed = map(rc_values[RC_CH1], 1050, 1750, 0, 100); // map channel 1
-    rotation = map(rc_values[RC_CH1], 1050, 1750, 0, 100); // map channel 1
+    rotation = map(rc_values[RC_CH2], 1050, 1750, 0, 100); // map channel 2
 
     // IF the rotation signal is received, then rotate. Else, keep moving forward
     if ( !(20 < rotation < 80)) {
+
         if (rotation < 50) {
             turn_left();
         } else {
-            turn_right()
+            turn_right();
         }
     } else {
         forward(duck_speed);

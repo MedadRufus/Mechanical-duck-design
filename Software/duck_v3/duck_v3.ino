@@ -14,6 +14,7 @@ uint16_t rc_values[RC_NUM_CHANNELS];
 int servo1_pos = 20;  // desired angle for servo1
 int servo2_pos = 20;  // desired angle for servo2
 int i = 30;
+int duck_speed = 0;
 
 
 void setup() {
@@ -27,42 +28,24 @@ void setup() {
 
 void loop()
 {
-
+    /*  When the left right knob is not turned, go forward at speed set by the front stick.
+        But if the left right passes a threshold, do the rotation.
+    */
     rc_read_values();
-    rc_values[RC_CH1];
+    
+    duck_speed = map(rc_values[RC_CH1], 1050, 1750, 0, 100); // map channel 1
+    rotation = map(rc_values[RC_CH1], 1050, 1750, 0, 100); // map channel 1
 
-    // TODO: add a filter to the values. FIR
-    //map the servo values
-    //  val = map(val, 0, 1023, 0, 255);
-    servo1_pos = map(rc_values[RC_CH1], 1050, 1750, 0, 180); // map channel 1
-    set_servos(servo1_pos, servo2_pos);
-
+    // IF the rotation signal is received, then rotate. Else, keep moving forward
+    if ( !(20 < rotation < 80)) {
+        if (rotation < 50) {
+            turn_left();
+        } else {
+            turn_right()
+        }
+    } else {
+        forward(duck_speed);
+    }
 
     delay(20);
-
-    /*
-        // state 4
-        Serial.println("state 4");
-        servo1_pos = 50;
-        servo2_pos = 70;
-        set_servos(servo1_pos,servo2_pos);
-        delay(1000);
-
-        /*
-        // state 4.5
-        Serial.println("state 4.5");
-        servo1_pos = 120;
-        servo2_pos = 170;
-        set_servos();
-        delay(1000);
-
-          // state 5
-        Serial.println("state 5");
-        servo1_pos = 30;
-        servo2_pos = 120;
-        set_servos();
-        delay(1000);
-    */
-
-
 }

@@ -62,7 +62,7 @@ void loop()
     servo1_pos = 120;
     servo2_pos = 40;
     set_servos();
-    delay(200);
+    delay(1000);
     
 
     // state 4.5
@@ -70,14 +70,14 @@ void loop()
     servo1_pos = 120;
     servo2_pos = 170;
     set_servos();
-    delay(300);
+    delay(1000);
 
         // state 5
     Serial.println("state 5");
     servo1_pos = 30;
     servo2_pos = 120;
     set_servos();
-    delay(200);
+    delay(1000);
 
 
 }

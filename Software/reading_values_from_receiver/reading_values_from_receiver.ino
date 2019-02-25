@@ -75,5 +75,5 @@ void loop() {
   servo_pos = map(rc_values[RC_CH1], 1050, 1750, 0, 180); // map channel 1
   servoleft.write(servo_pos); // move the servo
 
-  delay(20);
+  //delay(2);
 }

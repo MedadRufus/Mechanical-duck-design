@@ -7,17 +7,37 @@ Servo servo1;  // create servo object to control a servo
 Servo servo2;  // create servo object to control a servo
 
 void forward(int duck_speed) {
+
+    //Serial.println('sdf');
+    //servo1.write(servo1_pos);
+    //servo2.write(servo2_pos);
+    while (state == MOVING_FORWARD)
+    {
+        for (pos = 0; pos <= 180; pos += 1) { // goes from 0 degrees to 180 degrees
+            // in steps of 1 degree
+            servo1.write(pos);              // tell servo to go to position in variable 'pos'
+            delay(15);                       // waits 15ms for the servo to reach the position
+        }
+        for (pos = 180; pos >= 0; pos -= 1) { // goes from 180 degrees to 0 degrees
+            servo2.write(pos);              // tell servo to go to position in variable 'pos'
+            delay(15);                       // waits 15ms for the servo to reach the position
+        }
+    }
+
 }
 
-void turn_left() {
+void turn_left(int duck_speed) {
 
 }
-void turn_right() {
+void turn_right(int duck_speed) {
 }
+
+
 
 
 
 void set_servos(int servo1_pos, int servo2_pos) {
+
     servo1.write(servo1_pos);
     servo2.write(servo2_pos);
 }

@@ -14,8 +14,8 @@
 void set_servos(int servo1_pos, int servo2_pos);
 void servo_setup();
 void forward(int duck_speed);
-void turn_left();
-void turn_right();
+void turn_left(int duck_speed);
+void turn_right(int duck_speed);
 
 
 #endif // servo_driver_h

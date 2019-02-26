@@ -21,7 +21,6 @@
 
 extern uint32_t rc_start[RC_NUM_CHANNELS];
 extern uint16_t rc_values[RC_NUM_CHANNELS];
-int pos;
 
 void print_receiver_values(); //impt
 void rc_read_values();

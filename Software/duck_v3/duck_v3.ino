@@ -15,11 +15,8 @@ int ch1 = 0;
 int ch2 = 50;
 int duck_speed = 10;
 
+
 states state = MOVING_FORWARD;
-
-
-
-
 
 void setup() {
     Serial.begin(9600); // opens serial port, sets data rate to 9600 bps
@@ -33,27 +30,6 @@ void check_state() {
     //print_receiver_values();
     ch1 = map(rc_values[RC_CH1], 900, 2000, 0, 180); // map channel 1 forward
     ch2 = map(rc_values[RC_CH2], 900, 2000, 0, 180); // map channel 2 leftright
-
-
-    //    //IF the rotation signal is received, then rotate. Else, keep moving forward
-    //    if  ch2 < 120) {
-    //    Serial.println(ch2);
-    //
-    //        if () {
-    //            //turn_left(duck_speed);
-    //            states state = TURING_LEFT;
-    //        } else {
-    //            states state = TURING_RIGHT;
-    //        }
-    //    } else {
-    //        states state = MOVING_FORWARD;
-    //    }
-//typedef enum {
-//    TURING_LEFT,
-//    TURING_RIGHT,
-//    MOVING_FORWARD
-//} states;
-
 
     //Serial.println(ch2);
 
@@ -77,11 +53,12 @@ void check_state() {
 void loop() {
 
     check_state();
-
+    
+    duck_speed = map(rc_values[RC_CH1], 900, 2000, 0, 25);
     switch (state) {
 
         case MOVING_FORWARD:
-            forward(ch1); // make sure LED is on
+            forward(duck_speed); // make sure LED is on
             break;
         case TURNING_LEFT:
             turn_left(duck_speed); // make sure LED is off

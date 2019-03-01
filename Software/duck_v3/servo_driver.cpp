@@ -10,16 +10,18 @@ Servo servo2;  // create servo object to control a servo
 Servo servo3;  // create servo object to control a servo
 Servo servo4;  // create servo object to control a servo
 
+int upstroke_mult = 0.5;
 int pos = 0;
 
 // save last servo position
 
+/* Function that drives the servos forwards */
 void forward(int duck_speed) {
 
     while (1)
     {
 
-        for (pos = 30; pos <= 120; pos += 5) { // goes from 0 degrees to 180 degrees
+        for (pos = 30; pos <= 120; pos += duck_speed) { // goes from 0 degrees to 180 degrees
             // in steps of 1 degree
             servo1.write(pos);              // tell servo to go to position in variable 'pos'
             servo2.write(pos);              // tell servo to go to position in variable 'pos'
@@ -32,7 +34,7 @@ void forward(int duck_speed) {
             delay(15);                       // waits 15ms for the servo to reach the position
         }
         
-        for (pos = 120; pos >= 30; pos -= 5) { // goes from 180 degrees to 0 degrees
+        for (pos = 120; pos >= 30; pos -= duck_speed*upstroke_mult) { // goes from 180 degrees to 0 degrees
             servo1.write(pos);              // tell servo to go to position in variable 'pos'
             servo2.write(pos);              // tell servo to go to position in variable 'pos'
             servo3.write(pos);              // tell servo to go to position in variable 'pos'
@@ -49,23 +51,24 @@ void forward(int duck_speed) {
 
 void turn_left(int duck_speed) {
 
-
     while (1)
     {
 
-        for (pos = 0; pos <= 180; pos += 5) { // goes from 0 degrees to 180 degrees
+        for (pos = 30; pos <= 120; pos += duck_speed) { // goes from 0 degrees to 180 degrees
             // in steps of 1 degree
             servo1.write(pos);              // tell servo to go to position in variable 'pos'
-            
+            servo2.write(pos);              // tell servo to go to position in variable 'pos'
+
             check_state();
             if (state != TURNING_LEFT){return;}
             
             delay(15);                       // waits 15ms for the servo to reach the position
         }
         
-        for (pos = 180; pos >= 0; pos -= 5) { // goes from 180 degrees to 0 degrees
+        for (pos = 120; pos >= 30; pos -= duck_speed*upstroke_mult) { // goes from 180 degrees to 0 degrees
             servo1.write(pos);              // tell servo to go to position in variable 'pos'
-            
+            servo2.write(pos);              // tell servo to go to position in variable 'pos'
+
             check_state();
             if (state != TURNING_LEFT){return;}
             
@@ -76,7 +79,30 @@ void turn_left(int duck_speed) {
 
 }
 void turn_right(int duck_speed) {
+    while (1)
+    {
 
+        for (pos = 30; pos <= 120; pos += duck_speed) { // goes from 0 degrees to 180 degrees
+            // in steps of 1 degree
+            servo3.write(pos);              // tell servo to go to position in variable 'pos'
+            servo4.write(pos);              // tell servo to go to position in variable 'pos'
+
+            check_state();
+            if (state != TURNING_RIGHT){return;}
+            
+            delay(15);                       // waits 15ms for the servo to reach the position
+        }
+        
+        for (pos = 120; pos >= 30; pos -= duck_speed*upstroke_mult) { // goes from 180 degrees to 0 degrees
+            servo3.write(pos);              // tell servo to go to position in variable 'pos'
+            servo4.write(pos);              // tell servo to go to position in variable 'pos'
+
+            check_state();
+            if (state != TURNING_RIGHT){return;}
+            
+            delay(15);                       // waits 15ms for the servo to reach the position
+        }
+    }
 
     
 }

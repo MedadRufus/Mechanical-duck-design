@@ -16,6 +16,8 @@ void servo_setup();
 void forward(int duck_speed);
 void turn_left(int duck_speed);
 void turn_right(int duck_speed);
+void intialise_all_buffers();
+
 
 
 #endif // servo_driver_h

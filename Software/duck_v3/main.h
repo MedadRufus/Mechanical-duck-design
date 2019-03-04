@@ -17,7 +17,7 @@ typedef enum {
 
 extern states state;
 
-void check_state();
+int check_state_changed();
 
 
 #endif // main_h

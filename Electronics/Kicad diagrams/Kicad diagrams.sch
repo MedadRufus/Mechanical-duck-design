@@ -1,4 +1,5 @@
 EESchema Schematic File Version 4
+LIBS:Kicad diagrams-cache
 EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
@@ -6,7 +7,7 @@ encoding utf-8
 Sheet 1 1
 Title "Electrical design for the Mechanical duck"
 Date ""
-Rev "V1"
+Rev "V2"
 Comp ""
 Comment1 ""
 Comment2 ""
@@ -329,4 +330,16 @@ Wire Wire Line
 	5800 4300 5800 4650
 Wire Wire Line
 	5900 4300 5900 4650
+$Comp
+L power:GND #PWR?
+U 1 1 5C7920CA
+P 6050 5900
+F 0 "#PWR?" H 6050 5650 50  0001 C CNN
+F 1 "GND" H 6055 5727 50  0000 C CNN
+F 2 "" H 6050 5900 50  0001 C CNN
+F 3 "" H 6050 5900 50  0001 C CNN
+	1    6050 5900
+	1    0    0    -1  
+$EndComp
+Connection ~ 6050 5900
 $EndSCHEMATC

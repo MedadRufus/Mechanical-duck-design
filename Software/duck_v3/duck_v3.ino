@@ -13,7 +13,7 @@ int servo2_pos = 20;  // desired angle for servo2
 int i = 30;
 int ch1 = 0;
 int ch2 = 50;
-int duck_speed = 10;
+int duck_speed = 0;
 
 
 states state = MOVING_FORWARD;
@@ -22,10 +22,17 @@ void setup() {
     Serial.begin(9600); // opens serial port, sets data rate to 9600 bps
     servo_setup();
     radio_setup(); //impt
+    intialise_all_buffers();
+    Serial.println("here2");
+
+
+
 }
 
 
-void check_state() {
+/* return 1 if value changed, update state */
+/*
+    void check_state() {
     rc_read_values();
     //print_receiver_values();
     ch1 = map(rc_values[RC_CH1], 900, 2000, 0, 180); // map channel 1 forward
@@ -47,27 +54,78 @@ void check_state() {
     }
 
     //Serial.println(state);
+    }
+
+*/
+
+/* check if the state has changed. */
+int check_state_changed() {
+    rc_read_values();
+    //print_receiver_values();
+
+
+
+    /* current values */
+    states current_state = state;
+    int current_duck_speed = duck_speed;
+
+
+    /* new values */
+    ch2 = map(rc_values[RC_CH2], 900, 2000, 0, 180); // map channel 2 leftright
+    duck_speed = constrain(map(rc_values[RC_CH1], 1100, 2000, 0, 10),0,6);
+
+
+
+    if (ch2 < 50)
+    {
+        state = TURNING_LEFT;
+    }
+    else if (ch2 > 120)
+    {
+        state = TURNING_RIGHT;
+    }
+    else
+    {
+        state = MOVING_FORWARD;
+    }
+
+
+    /* now check if the state or speed has changed*/
+    if (current_state != state || current_duck_speed != duck_speed ) {
+        return 1;
+    }
+
+    return 0;
 }
 
+
+
 /* implementing a state machnine */
+/* TODO: make it to carry on the stroke from the same position*/
 void loop() {
 
-    check_state();
-    
-    duck_speed = map(rc_values[RC_CH1], 900, 2000, 0, 25);
+
+    check_state_changed();
+
+    Serial.println(state);
     switch (state) {
 
         case MOVING_FORWARD:
-            forward(duck_speed); // make sure LED is on
+            forward(duck_speed); 
             break;
+        
         case TURNING_LEFT:
-            turn_left(duck_speed); // make sure LED is off
+            turn_left(duck_speed);
             break;
+
+        
         case TURNING_RIGHT:
             turn_right(duck_speed);
             break;
+         
     }
 
     delay(5); // sleep for 5ms
+
 }
 

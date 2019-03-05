@@ -1,13 +1,14 @@
 EESchema Schematic File Version 4
+LIBS:Kicad diagrams-cache
 EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 1
 Title "Electrical design for the Mechanical duck"
-Date ""
-Rev "V1"
-Comp ""
+Date "2019-03-04"
+Rev "V3"
+Comp "Added the additional capacitor"
 Comment1 ""
 Comment2 ""
 Comment3 ""
@@ -244,22 +245,6 @@ Wire Wire Line
 	7050 3900 8500 3900
 Wire Wire Line
 	8500 3900 8500 3200
-Wire Wire Line
-	6300 3500 6950 3500
-Wire Wire Line
-	6950 3500 6950 4000
-Wire Wire Line
-	6950 4000 8600 4000
-Wire Wire Line
-	8600 4000 8600 3200
-Wire Wire Line
-	6300 3600 6850 3600
-Wire Wire Line
-	6850 3600 6850 4100
-Wire Wire Line
-	6850 4100 8700 4100
-Wire Wire Line
-	8700 4100 8700 3200
 $Comp
 L power:GND #PWR011
 U 1 1 5C7366F7
@@ -329,4 +314,63 @@ Wire Wire Line
 	5800 4300 5800 4650
 Wire Wire Line
 	5900 4300 5900 4650
+$Comp
+L power:GND #PWR015
+U 1 1 5C7920CA
+P 6050 5900
+F 0 "#PWR015" H 6050 5650 50  0001 C CNN
+F 1 "GND" H 6055 5727 50  0000 C CNN
+F 2 "" H 6050 5900 50  0001 C CNN
+F 3 "" H 6050 5900 50  0001 C CNN
+	1    6050 5900
+	1    0    0    -1  
+$EndComp
+Connection ~ 6050 5900
+$Comp
+L Device:C C2
+U 1 1 5C7D338D
+P 9950 2900
+F 0 "C2" H 10065 2946 50  0000 L CNN
+F 1 "C470u" H 10065 2855 50  0000 L CNN
+F 2 "" H 9988 2750 50  0001 C CNN
+F 3 "~" H 9950 2900 50  0001 C CNN
+	1    9950 2900
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C1
+U 1 1 5C7D340E
+P 10400 2900
+F 0 "C1" H 10285 2854 50  0000 R CNN
+F 1 "C100u" H 10285 2945 50  0000 R CNN
+F 2 "" H 10438 2750 50  0001 C CNN
+F 3 "~" H 10400 2900 50  0001 C CNN
+	1    10400 2900
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	6000 2300 6000 1900
+Wire Wire Line
+	6000 1900 9950 1900
+Wire Wire Line
+	9950 1900 9950 2550
+Wire Wire Line
+	9950 3050 9950 3400
+Wire Wire Line
+	9950 4300 5900 4300
+Connection ~ 5900 4300
+Wire Wire Line
+	9950 2550 10400 2550
+Wire Wire Line
+	10400 2550 10400 2750
+Connection ~ 9950 2550
+Wire Wire Line
+	9950 2550 9950 2750
+Wire Wire Line
+	9950 3400 10400 3400
+Wire Wire Line
+	10400 3400 10400 3050
+Connection ~ 9950 3400
+Wire Wire Line
+	9950 3400 9950 4300
 $EndSCHEMATC

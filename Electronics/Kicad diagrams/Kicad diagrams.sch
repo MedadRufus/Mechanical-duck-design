@@ -18,8 +18,8 @@ $Comp
 L MCU_Module:Arduino_Nano_v3.x A1
 U 1 1 5C733E90
 P 5800 3300
-F 0 "A1" H 5800 2214 50  0000 C CNN
-F 1 "Arduino_Nano_v3.x" H 5800 2123 50  0000 C CNN
+F 0 "A1" H 5800 4700 50  0000 C CNN
+F 1 "Arduino_Nano_v3.x" H 5850 4800 50  0000 C CNN
 F 2 "Module:Arduino_Nano" H 5950 2350 50  0001 L CNN
 F 3 "http://www.mouser.com/pdfdocs/Gravitech_Arduino_Nano3_0.pdf" H 5800 2300 50  0001 C CNN
 	1    5800 3300
@@ -31,16 +31,16 @@ U 1 1 5C734756
 P 8250 2900
 F 0 "U1" H 8928 2915 50  0000 L CNN
 F 1 "TR6_receiver" H 8928 2824 50  0000 L CNN
-F 2 "" H 8250 3050 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 8250 3050 50  0001 C CNN
 F 3 "" H 8250 3050 50  0001 C CNN
 	1    8250 2900
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:Battery BT1
+L Device:Battery 11.1V
 U 1 1 5C73482F
 P 4500 5450
-F 0 "BT1" H 4608 5496 50  0000 L CNN
+F 0 "11.1V" H 4608 5496 50  0000 L CNN
 F 1 "Battery" H 4608 5405 50  0000 L CNN
 F 2 "" V 4500 5510 50  0001 C CNN
 F 3 "~" V 4500 5510 50  0001 C CNN
@@ -53,7 +53,7 @@ U 1 1 5C7348DE
 P 2850 2400
 F 0 "M3" H 2846 2093 50  0000 C CNN
 F 1 "Motor_Servo" H 2846 2184 50  0000 C CNN
-F 2 "" H 2850 2210 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" H 2850 2210 50  0001 C CNN
 F 3 "http://forums.parallax.com/uploads/attachments/46831/74481.png" H 2850 2210 50  0001 C CNN
 	1    2850 2400
 	-1   0    0    1   
@@ -64,7 +64,7 @@ U 1 1 5C734A79
 P 2850 4200
 F 0 "M1" H 2846 3893 50  0000 C CNN
 F 1 "Motor_Servo" H 2846 3984 50  0000 C CNN
-F 2 "" H 2850 4010 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" H 2850 4010 50  0001 C CNN
 F 3 "http://forums.parallax.com/uploads/attachments/46831/74481.png" H 2850 4010 50  0001 C CNN
 	1    2850 4200
 	-1   0    0    1   
@@ -75,7 +75,7 @@ U 1 1 5C734ACF
 P 2850 3700
 F 0 "M2" H 2846 3393 50  0000 C CNN
 F 1 "Motor_Servo" H 2846 3484 50  0000 C CNN
-F 2 "" H 2850 3510 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" H 2850 3510 50  0001 C CNN
 F 3 "http://forums.parallax.com/uploads/attachments/46831/74481.png" H 2850 3510 50  0001 C CNN
 	1    2850 3700
 	-1   0    0    1   
@@ -86,7 +86,7 @@ U 1 1 5C734B3A
 P 2850 3000
 F 0 "M4" H 2846 2693 50  0000 C CNN
 F 1 "Motor_Servo" H 2846 2784 50  0000 C CNN
-F 2 "" H 2850 2810 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" H 2850 2810 50  0001 C CNN
 F 3 "http://forums.parallax.com/uploads/attachments/46831/74481.png" H 2850 2810 50  0001 C CNN
 	1    2850 3000
 	-1   0    0    1   
@@ -257,17 +257,6 @@ F 3 "" H 5900 4650 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:GND #PWR010
-U 1 1 5C736727
-P 5800 4650
-F 0 "#PWR010" H 5800 4400 50  0001 C CNN
-F 1 "GND" H 5805 4477 50  0000 C CNN
-F 2 "" H 5800 4650 50  0001 C CNN
-F 3 "" H 5800 4650 50  0001 C CNN
-	1    5800 4650
-	1    0    0    -1  
-$EndComp
-$Comp
 L Regulator_Switching:LM2596T-3.3 U2
 U 1 1 5C7369EF
 P 6050 5400
@@ -311,8 +300,6 @@ F 3 "" H 5700 2300 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	5800 4300 5800 4650
-Wire Wire Line
 	5900 4300 5900 4650
 $Comp
 L power:GND #PWR015
@@ -332,7 +319,7 @@ U 1 1 5C7D338D
 P 9950 2900
 F 0 "C2" H 10065 2946 50  0000 L CNN
 F 1 "C470u" H 10065 2855 50  0000 L CNN
-F 2 "" H 9988 2750 50  0001 C CNN
+F 2 "Capacitor_THT:CP_Radial_D7.5mm_P2.50mm" H 9988 2750 50  0001 C CNN
 F 3 "~" H 9950 2900 50  0001 C CNN
 	1    9950 2900
 	1    0    0    -1  
@@ -343,7 +330,7 @@ U 1 1 5C7D340E
 P 10400 2900
 F 0 "C1" H 10285 2854 50  0000 R CNN
 F 1 "C100u" H 10285 2945 50  0000 R CNN
-F 2 "" H 10438 2750 50  0001 C CNN
+F 2 "Capacitor_THT:CP_Radial_D7.5mm_P2.50mm" H 10438 2750 50  0001 C CNN
 F 3 "~" H 10400 2900 50  0001 C CNN
 	1    10400 2900
 	-1   0    0    1   
@@ -370,7 +357,9 @@ Wire Wire Line
 	9950 3400 10400 3400
 Wire Wire Line
 	10400 3400 10400 3050
-Connection ~ 9950 3400
 Wire Wire Line
 	9950 3400 9950 4300
+Connection ~ 9950 3400
+Text Notes 6650 5650 0    50   ~ 0
+VCC value is 6V from buck converter
 $EndSCHEMATC

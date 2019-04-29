@@ -1,0 +1,23 @@
+Warning: 22:44:42: [3D File Resolver] No such path; ensure the environment var is defined
+Warning: \\icnas2.cc.ic.ac.uk\mrn3317\downloads\KiCadPortable\App\KiCad\share\kicad\modules\packages3d\arduino-nano.wrl
+Warning: 22:44:42: C:/Jenkins/workspace/windows-kicad-msys2-stable/src/kicad/utils/kicad2step/pcb/oce_utils.cpp: AddComponent: 588
+Warning:   * no model defined for component 'A1'
+Warning: 22:44:42: C:/Jenkins/workspace/windows-kicad-msys2-stable/src/kicad/utils/kicad2step/pcb/oce_utils.cpp: AddComponent: 588
+Warning:   * no model defined for component 'C2'
+Warning: 22:44:42: C:/Jenkins/workspace/windows-kicad-msys2-stable/src/kicad/utils/kicad2step/pcb/oce_utils.cpp: AddComponent: 588
+Warning:   * no model defined for component 'C1'
+Warning: 22:44:42: C:/Jenkins/workspace/windows-kicad-msys2-stable/src/kicad/utils/kicad2step/pcb/oce_utils.cpp: AddComponent: 588
+Warning:   * no model defined for component 'M1'
+Warning: 22:44:42: C:/Jenkins/workspace/windows-kicad-msys2-stable/src/kicad/utils/kicad2step/pcb/oce_utils.cpp: AddComponent: 588
+Warning:   * no model defined for component 'M2'
+Warning: 22:44:42: C:/Jenkins/workspace/windows-kicad-msys2-stable/src/kicad/utils/kicad2step/pcb/oce_utils.cpp: AddComponent: 588
+Warning:   * no model defined for component 'M3'
+Warning: 22:44:42: C:/Jenkins/workspace/windows-kicad-msys2-stable/src/kicad/utils/kicad2step/pcb/oce_utils.cpp: AddComponent: 588
+Warning:   * no model defined for component 'M4'
+Warning: 22:44:42: C:/Jenkins/workspace/windows-kicad-msys2-stable/src/kicad/utils/kicad2step/pcb/oce_utils.cpp: AddComponent: 588
+Warning:   * no model defined for component 'U1'
+Warning: 22:44:42: C:/Jenkins/workspace/windows-kicad-msys2-stable/src/kicad/utils/kicad2step/pcb/oce_utils.cpp: CreatePCB: 674
+Warning:   * no valid board outline
+Warning: 22:44:42: ** C:/Jenkins/workspace/windows-kicad-msys2-stable/src/kicad/utils/kicad2step/pcb/kicadpcb.cpp:ComposePCB:505
+Warning: *  could not create PCB solid model
+Warning: 

@@ -1,5 +1,7 @@
 /*  Code for listening to the receiver
-    Created on Medad Newman on 22 Feb 2019
+    * Created on Medad Newman on 22 Feb 2019
+    * This program simulates an interrupt function. It reads the PWM signal from 
+    * the radio radio reciever and outputs the duty cycle value for each channel
 */
 
 
@@ -11,6 +13,7 @@
 
 volatile uint16_t rc_shared[RC_NUM_CHANNELS];
 
+/* read values from receiver */
 void rc_read_values() {
     noInterrupts();
     memcpy(rc_values, (const void *)rc_shared, sizeof(rc_shared));
